@@ -13,7 +13,7 @@ export default function Goods({id, name, description, price, full_background })
       <div className="card-action">
       <span className="card-title">{name}</span>
         <button className="btn">Buy</button>
-        <span className="right">{price}</span>
+        <span className="right"></span>
       </div>
     </div>
   )
