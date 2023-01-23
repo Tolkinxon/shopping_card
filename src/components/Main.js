@@ -26,7 +26,7 @@ export default function Main() {
   
     return (
         <div className='container content'>
-          {loading ? <Loader /> : <h1>something went wrong</h1>}
+          {loading ? <Loader /> : <GoodList goods={goods} />}
         </div>
     )
 }
