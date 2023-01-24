@@ -40,10 +40,20 @@ nav {
 
 .collectionDiv {
   position: fixed;
-  top: 200px;
+  top: 30%;
   left: 415px;
   border: 50px;
   min-width: calc(100vh - 100px - 100px);
+  animation: show 0.5s ease-in-out;
+}
+
+.backgroundSide {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
 }
 
 .clear {
@@ -53,7 +63,7 @@ nav {
 }
 
 .basket-delete {
-  color: blue;
+  /* color: blue; */
   cursor: pointer;
 }
 
@@ -61,4 +71,15 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+@keyframes show {
+  from {
+    top: 50%;
+    opacity: 0;
+  }
+  to {
+    top: 30%;
+    opacity: 1;
+  }
 }

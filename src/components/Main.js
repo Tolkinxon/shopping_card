@@ -11,43 +11,46 @@ export default function Main() {
   const [loading, setLoading] = useState(true)
   const [order, setOrder] = useState([])
   const [isBasketShow, setIsBasketShow] = useState(false)
-
-
-    
-
+  
 
   const handleBasketShow = () => {
     setIsBasketShow(!isBasketShow)
   }
 
-
-  
   const addToBasket = (item) => {
-    const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
-    
-    if(itemIndex < 0){
+    const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id)
+
+    if (itemIndex < 0) {
       const newItem = {
         ...item,
-        quantity: 1
-      } 
-      setOrder([...order, newItem ])
-    }
-    else{
+        quantity: 1,
+      }
+      setOrder([...order, newItem])
+    } else {
       const newOrder = order.map((orderItem, index) => {
-        if(index === itemIndex){
+        if (index === itemIndex) {
           return {
             ...item,
-            quantity: orderItem.quantity + 1
+            quantity: orderItem.quantity + 1,
           }
-        }
-        else{
+        } else {
           return orderItem
         }
       })
       setOrder(newOrder)
-    }}
+    }
+  }
 
+  const clearBasket = (id) => {
+    const index = order.findIndex((orderItem) => orderItem.id === id)
+ 
+    order.splice(index, 1)
 
+    setOrder([...order])
+
+   
+  
+  }
 
   useEffect(() => {
     fetch(API_URL, {
@@ -64,11 +67,22 @@ export default function Main() {
 
 
 
+
   return (
     <div className="container content">
-      <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
-      {loading ? <Loader /> : <GoodList goods={goods}  addToBasket={addToBasket} />}
-      {isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/>}
+      <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <GoodList goods={goods} addToBasket={addToBasket} />
+      )}
+      {isBasketShow && (
+        <BasketList
+          order={order}
+          handleBasketShow={handleBasketShow}
+          clearBasket={clearBasket}
+        />
+      )}
     </div>
   )
 }
