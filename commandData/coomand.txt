@@ -2,7 +2,7 @@ cd shop
 git init
 git status
 git add . 
-git commit -m "added toastify"
+git commit -m "added createContext"
 git push -u origin master
 
 cd shop
