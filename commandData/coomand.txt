@@ -2,7 +2,8 @@ cd shop
 git init
 git status
 git add . 
-git commit -m ""
+git commit -m "loader is changed"
 git push -u origin master
 
+cd shop
 npm start
