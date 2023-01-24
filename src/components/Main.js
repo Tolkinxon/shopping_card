@@ -41,6 +41,19 @@ export default function Main() {
     }
   }
 
+  const incrDecr = (id, number) => {
+   const index = order.findIndex((orderItem) => orderItem.id === id)
+
+    
+   const newArr = order.map((item, id) => {
+    if(number == -1 && item.quantity === 0) {return item}
+    return  index === id ? {...item, quantity:  item.quantity + number} : item
+   })
+
+   setOrder(newArr)
+  }
+
+
   const clearBasket = (id) => {
     const index = order.findIndex((orderItem) => orderItem.id === id)
  
@@ -68,6 +81,8 @@ export default function Main() {
 
 
 
+
+
   return (
     <div className="container content">
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
@@ -81,6 +96,7 @@ export default function Main() {
           order={order}
           handleBasketShow={handleBasketShow}
           clearBasket={clearBasket}
+          incrDecr={incrDecr}
         />
       )}
     </div>

@@ -1,6 +1,6 @@
 import '../App.css'
 import BasketItem from './BasketItem'
-export default function BasketList({ order = [], handleBasketShow, clearBasket}) {
+export default function BasketList({ order = [], handleBasketShow, clearBasket, incrDecr}) {
   const totalPrice = order.reduce((sum, el) => {
     return sum + el.price * el.quantity
   }, 0)
@@ -16,7 +16,7 @@ export default function BasketList({ order = [], handleBasketShow, clearBasket})
         </i>{' '}
       </li>
       {order.length > 0 ? (
-        order.map((item) => <BasketItem key={item.id} {...item} clearBasket={clearBasket}/>)
+        order.map((item) => <BasketItem key={item.id} {...item} clearBasket={clearBasket} incrDecr={incrDecr}/>)
       ) : (
         <li className="collection-item ">Basket is empty</li>
       )}
