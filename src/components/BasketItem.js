@@ -1,11 +1,14 @@
-export default function BasketItem({
-  id,
-  name,
-  price,
-  quantity,
-  clearBasket,
-  incrDecr,
-}) {
+import { useContext } from "react"
+import { shopContext } from "../context"
+
+
+export default function BasketItem({id,name,price, quantity,clearBasket, incrDecr,}) {
+
+  const {example} = useContext(shopContext)
+
+  console.log(example);
+
+
   return (
     <li className="collection-item BIwrapper">
       <span>
