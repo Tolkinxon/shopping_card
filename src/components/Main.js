@@ -61,6 +61,7 @@ export default function Main() {
     order.splice(index, 1)
 
     setOrder([...order])
+    toast.error('the item is deleted')
   }
 
   useEffect(() => {
