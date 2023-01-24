@@ -5,6 +5,7 @@ import GoodList from './GoodList'
 import { useState, useEffect } from 'react'
 import Cart from './Cart'
 import BasketList from './BasketList'
+import { toast } from 'react-toastify'
 
 export default function Main() {
   const [goods, setGoods] = useState([])
@@ -39,6 +40,7 @@ export default function Main() {
       })
       setOrder(newOrder)
     }
+    toast.success('added new items')
   }
 
   const incrDecr = (id, number) => {
@@ -49,8 +51,7 @@ export default function Main() {
     if(number == -1 && item.quantity === 0) {return item}
     return  index === id ? {...item, quantity:  item.quantity + number} : item
    })
-
-   setOrder(newArr)
+    setOrder(newArr)
   }
 
 
@@ -60,9 +61,6 @@ export default function Main() {
     order.splice(index, 1)
 
     setOrder([...order])
-
-   
-  
   }
 
   useEffect(() => {
