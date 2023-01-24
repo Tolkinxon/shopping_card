@@ -19,7 +19,7 @@ export default function BasketItem({id,name,price, quantity,clearBasket, incrDec
         <button onClick={() => incrDecr(id, 1)}>+1</button>
         <button onClick={() => incrDecr(id, -1)}>-1</button>
         <i className="material-icons " onClick={() => clearBasket(id)}>
-          delete_forever
+          delete_forever hello
         </i>
       </div>
     </li>
