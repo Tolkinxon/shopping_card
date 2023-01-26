@@ -1,5 +1,9 @@
 import Goods from './Goods'
-export default function GoodList({ goods = [], addToBasket }) {
+import { useContext } from 'react'
+import { shopContext } from '../context'
+
+export default function GoodList({goods}) {
+
 
   if(goods.length == 0){
     return <h3>NOTHING HERE</h3>
@@ -8,7 +12,7 @@ export default function GoodList({ goods = [], addToBasket }) {
   return (
     <div className="goods">
       {goods.map((item) => (
-        <Goods key={item.id} {...item} addToBasket={addToBasket}/>
+        <Goods key={item.id} {...item}/>
       ))}
     </div>
   )

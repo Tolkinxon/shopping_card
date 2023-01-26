@@ -2,11 +2,11 @@ import { useContext } from "react"
 import { shopContext } from "../context"
 
 
-export default function BasketItem({id,name,price, quantity,clearBasket, incrDecr,}) {
+export default function BasketItem({id,name,price, quantity}) {
 
-  const {example} = useContext(shopContext)
+         
+  const {incrDecr, clearBasket} = useContext(shopContext)
 
-  console.log(example);
 
 
   return (
@@ -19,7 +19,7 @@ export default function BasketItem({id,name,price, quantity,clearBasket, incrDec
         <button onClick={() => incrDecr(id, 1)}>+1</button>
         <button onClick={() => incrDecr(id, -1)}>-1</button>
         <i className="material-icons " onClick={() => clearBasket(id)}>
-          delete_forever hello
+          delete_forever 
         </i>
       </div>
     </li>
